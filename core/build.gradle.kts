@@ -37,6 +37,9 @@ dependencies {
   implementation(libs.appcompat)
   implementation(libs.com.google.android.material.material)
 
+  //datastore
+  implementation(libs.datastore.preference)
+
   // Room Database
   implementation(libs.room.ktx)
   implementation(libs.room.runtime)

@@ -2,6 +2,7 @@ package id.aej.jeky.core.data
 
 import android.content.Context
 import id.aej.jeky.core.data.repository.AuthRepositoryImpl
+import id.aej.jeky.core.data.source.local.datastore.JekyDataStore
 import id.aej.jeky.core.data.source.local.room.JekyDatabase
 import id.aej.jeky.core.domain.JekyContainer
 import id.aej.jeky.core.domain.repository.AuthRepository
@@ -17,6 +18,12 @@ class JekyContainerImpl constructor(
     JekyDatabase.getInstance(context)
   }
 
+  private val jekyDataStore : JekyDataStore by lazy {
+    JekyDataStore(context)
+  }
+
   override val authRepository: AuthRepository
     get() = AuthRepositoryImpl(jekyDatabase.userDao())
+
+
 }
